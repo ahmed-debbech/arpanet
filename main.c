@@ -7,7 +7,7 @@ void request(int size, struct interfaces ** a){
     for(i=0; i<=size-1; i++){
         printf("[%d] %s \t %s\n", i+1, a[i]->name, a[i]->subnet);
     }
-
+    
     return;
 }
 int main (){

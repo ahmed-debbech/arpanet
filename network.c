@@ -16,7 +16,6 @@ int getAllInterfaces(struct interfaces *** arr){
         if (ifa->ifa_addr->sa_family==AF_INET) {
             sa = (struct sockaddr_in *) ifa->ifa_netmask;
             addr = inet_ntoa(sa->sin_addr);
-            printf("%s == %s\n", addr, ifa->ifa_name);
             struct interfaces * inter = malloc(sizeof(struct interfaces));
             inter->name = ifa->ifa_name;
             inter->subnet = addr;
@@ -25,6 +24,7 @@ int getAllInterfaces(struct interfaces *** arr){
             i++;
         }
     }
+
     freeifaddrs(ifap);
     return i-1;
 }
